@@ -3,6 +3,7 @@ const budgetNumberInput = document.getElementById('budget');
 const entryDropdown = document.getElementById('entry-dropdown');
 const addEntryButton = document.getElementById('add-entry');
 const clearButton = document.getElementById('clear');
+let calculate = document.getElementById('calculate')
 const output = document.getElementById('output');
 let isError = false;
 let clickCount = 0; 
@@ -44,7 +45,11 @@ function addEntry() {
   entryDropdown.addEventListener('click', () => {
     previousEntries = targetInputContainer.querySelectorAll('.entry');
     previousEntries.forEach(entry => entry.style.display = 'none');
-  })
+  });
+  calculate.addEventListener('click', () => {
+    previousEntries = targetInputContainer.querySelectorAll('.entry');
+    previousEntries.forEach(entry => entry.style.display = 'none');
+  });
   clickCount++;
 };
 
@@ -78,8 +83,7 @@ function calculateCalories(e) {
   <p>${budgetCalories} Calories Budgeted</p>
   <p>${consumedCalories} Calories Consumed</p>
   <p>${exerciseCalories} Calories Burned</p>
-  `;
-
+  `; 
   output.classList.remove('hide');
 }
 
